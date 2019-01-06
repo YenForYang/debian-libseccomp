@@ -1,0 +1,1128 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package libseccomp
+dpkg-buildpackage: info: source version 2.3.3-4
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by Ondřej Nový <onovy@debian.org>
+Could not create response file
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 28-parisc_support.patch
+dpkg-source: info: applying 29-parisc_syscalls_linux49.patch
+dpkg-source: info: applying 30-parisc_syscalls_linux414.patch
+dpkg-source: info: applying 31-parisc_syscalls_linux415.patch
+ fakeroot debian/rules clean
+dh clean --with python2,python3
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+dh_auto_clean
+rm -f regression.out
+make[1]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/libseccomp-dev.substvars debian/libseccomp2.substvars debian/seccomp.substvars debian/python-seccomp.substvars debian/python3-seccomp.substvars debian/files
+	rm -fr -- debian/libseccomp-dev/ debian/tmp/ debian/libseccomp2/ debian/seccomp/ debian/python-seccomp/ debian/python3-seccomp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=1207838198 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build --with python2,python3
+   dh_update_autotools_config
+	install -d debian/.debhelper/bucket/files
+	cp -an --reflink=auto build-aux/config.guess debian/.debhelper/bucket/files/f71db9d796b6f173a6fdb4ddd08424e02085b24156018cd02063d159c9d17bb2.tmp
+	mv debian/.debhelper/bucket/files/f71db9d796b6f173a6fdb4ddd08424e02085b24156018cd02063d159c9d17bb2.tmp debian/.debhelper/bucket/files/f71db9d796b6f173a6fdb4ddd08424e02085b24156018cd02063d159c9d17bb2
+	cp -f /usr/share/misc/config.guess ./build-aux/config.guess
+	cp -an --reflink=auto build-aux/config.sub debian/.debhelper/bucket/files/52d7418817df4a0bd139446cf014f9dfd5bb3406a95c3109ca6fd578068be472.tmp
+	mv debian/.debhelper/bucket/files/52d7418817df4a0bd139446cf014f9dfd5bb3406a95c3109ca6fd578068be472.tmp debian/.debhelper/bucket/files/52d7418817df4a0bd139446cf014f9dfd5bb3406a95c3109ca6fd578068be472
+	cp -f /usr/share/misc/config.sub ./build-aux/config.sub
+   dh_autoreconf
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.before
+	grep -q ^XDT_ configure.ac
+	autoreconf -f -i
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:52: installing 'build-aux/compile'
+configure.ac:47: installing 'build-aux/missing'
+src/Makefile.am: installing 'build-aux/depcomp'
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.after
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+dh_auto_configure -- --enable-python
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --disable-maintainer-mode --disable-dependency-tracking --enable-python
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /usr/share/config.site
+checking for a BSD-compatible install... /usr/bin/install
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... /usr/bin/gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking how to create a pax tar archive... gnutar
+checking for gcc... icc.pl
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether icc.pl accepts -g... yes
+checking for icc.pl option to accept ISO C89... none needed
+checking whether icc.pl understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of icc.pl... none
+checking the archiver (xiar) interface... ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by icc.pl... xild -m elf_x86_64
+checking if the linker (xild -m elf_x86_64) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/x86_64-linux-gnu-nm -B
+checking the name lister (/usr/bin/x86_64-linux-gnu-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for xild -m elf_x86_64 option to reload object files... -r
+checking for objdump... /usr/bin/x86_64-linux-gnu-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... /usr/bin/x86_64-linux-gnu-strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/x86_64-linux-gnu-nm -B output from icc.pl object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... ccache /usr/bin/cpp.intel
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if icc.pl supports -fno-rtti -fno-exceptions... yes
+checking for icc.pl option to produce PIC... -fPIC -DPIC
+checking if icc.pl PIC flag -fPIC -DPIC works... yes
+checking if icc.pl static flag -static works... no
+checking if icc.pl supports -c -o file.o... no
+checking if icc.pl supports -c -o file.o... (cached) no
+checking if we can lock with hard links... yes
+checking whether the icc.pl linker (xild -m elf_x86_64 -m elf_x86_64) supports shared libraries... xild: warning #10013: no objects specified for multi-file optimization
+xild: executing 'x86_64-linux-gnu-ld'
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... Could not create response file
+GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether make supports nested variables... (cached) yes
+checking for linux/seccomp.h... yes
+checking for cython... yes
+checking cython version... no
+0.28.4
+./configure: line 12289: test: no
+0: integer expression expected
+checking for cov-build... no
+checking whether to build with code coverage support... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libseccomp.pc
+config.status: creating include/seccomp.h
+config.status: creating Makefile
+config.status: creating include/Makefile
+config.status: creating src/Makefile
+config.status: creating src/python/Makefile
+config.status: creating tools/Makefile
+config.status: creating tests/Makefile
+config.status: creating doc/Makefile
+config.status: creating configure.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+make[1]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+	rm -f debian/libseccomp-dev.debhelper.log debian/libseccomp2.debhelper.log debian/python-seccomp.debhelper.log debian/python3-seccomp.debhelper.log debian/seccomp.debhelper.log
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+dh_auto_build
+	make -j8
+make[2]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+make  all-recursive
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+Making all in include
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/include'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/include'
+Making all in src
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src'
+Making all in .
+make[5]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src'
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-api.lo `test -f 'api.c' || echo './'`api.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-system.lo `test -f 'system.c' || echo './'`system.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-gen_pfc.lo `test -f 'gen_pfc.c' || echo './'`gen_pfc.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-gen_bpf.lo `test -f 'gen_bpf.c' || echo './'`gen_bpf.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-hash.lo `test -f 'hash.c' || echo './'`hash.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-db.lo `test -f 'db.c' || echo './'`db.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch.lo `test -f 'arch.c' || echo './'`arch.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-x86.lo `test -f 'arch-x86.c' || echo './'`arch-x86.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c gen_bpf.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c db.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c gen_pfc.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch.c  -fPIC -DPIC
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c hash.c  -fPIC -DPIC
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c system.c  -fPIC -DPIC
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86.c  -fPIC -DPIC
+Could not create response file
+Could not create response file
+Could not create response file
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c api.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.08 (CPU)       0.00 (elapsed)
+Back end time                        0.06 (CPU)       0.00 (elapsed)
+Total compilation time               0.14 (CPU)       0.00 (elapsed)
+Front end time                       0.07 (CPU)       0.00 (elapsed)
+Back end time                        0.11 (CPU)       0.00 (elapsed)
+Total compilation time               0.18 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "system.o" ".libs/libseccomp_la-system.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c system.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-x86.o" ".libs/libseccomp_la-arch-x86.o"
+libtool: compile: mv -f "system.o" "libseccomp_la-system.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86.c  -fPIC -DPIC >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-x86-syscalls.lo `test -f 'arch-x86-syscalls.c' || echo './'`arch-x86-syscalls.c
+Front end time                       0.07 (CPU)       0.00 (elapsed)
+Back end time                        0.20 (CPU)       0.00 (elapsed)
+Total compilation time               0.28 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-x86.o" "libseccomp_la-arch-x86.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-x86_64.lo `test -f 'arch-x86_64.c' || echo './'`arch-x86_64.c
+libtool: compile: mv -f "arch.o" ".libs/libseccomp_la-arch.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch.o" "libseccomp_la-arch.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-x86_64-syscalls.lo `test -f 'arch-x86_64-syscalls.c' || echo './'`arch-x86_64-syscalls.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86-syscalls.c  -fPIC -DPIC
+Front end time                       0.10 (CPU)       0.00 (elapsed)
+Back end time                        0.42 (CPU)       1.00 (elapsed)
+Total compilation time               0.52 (CPU)       1.00 (elapsed)
+Front end time                       0.10 (CPU)       0.00 (elapsed)
+Back end time                        0.23 (CPU)       1.00 (elapsed)
+Total compilation time               0.33 (CPU)       1.00 (elapsed)
+Could not create response file
+libtool: compile: mv -f "gen_pfc.o" ".libs/libseccomp_la-gen_pfc.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86_64.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c gen_pfc.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "api.o" ".libs/libseccomp_la-api.o"
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86_64-syscalls.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c api.c  -fPIC -DPIC >/dev/null 2>&1
+Could not create response file
+libtool: compile: mv -f "gen_pfc.o" "libseccomp_la-gen_pfc.o"
+libtool: compile: mv -f "api.o" "libseccomp_la-api.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-x32.lo `test -f 'arch-x32.c' || echo './'`arch-x32.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-x32-syscalls.lo `test -f 'arch-x32-syscalls.c' || echo './'`arch-x32-syscalls.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x32-syscalls.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x32.c  -fPIC -DPIC
+Could not create response file
+Could not create response file
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.08 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-x86_64.o" ".libs/libseccomp_la-arch-x86_64.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86_64.c  -fPIC -DPIC >/dev/null 2>&1
+Front end time                       0.05 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-x86_64.o" "libseccomp_la-arch-x86_64.o"
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.13 (CPU)       0.00 (elapsed)
+Total compilation time               0.19 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-x86_64-syscalls.o" ".libs/libseccomp_la-arch-x86_64-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86_64-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-x86-syscalls.o" ".libs/libseccomp_la-arch-x86-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x86-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-arm.lo `test -f 'arch-arm.c' || echo './'`arch-arm.c
+libtool: compile: mv -f "arch-x86-syscalls.o" "libseccomp_la-arch-x86-syscalls.o"
+libtool: compile: mv -f "arch-x86_64-syscalls.o" "libseccomp_la-arch-x86_64-syscalls.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-arm-syscalls.lo `test -f 'arch-arm-syscalls.c' || echo './'`arch-arm-syscalls.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-aarch64.lo `test -f 'arch-aarch64.c' || echo './'`arch-aarch64.c
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-arm.c  -fPIC -DPIC
+libtool: compile: mv -f "arch-x32-syscalls.o" ".libs/libseccomp_la-arch-x32-syscalls.o"
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x32-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-arm-syscalls.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.07 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-x32-syscalls.o" "libseccomp_la-arch-x32-syscalls.o"
+libtool: compile: mv -f "arch-x32.o" ".libs/libseccomp_la-arch-x32.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-aarch64-syscalls.lo `test -f 'arch-aarch64-syscalls.c' || echo './'`arch-aarch64-syscalls.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-x32.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-aarch64.c  -fPIC -DPIC
+Could not create response file
+libtool: compile: mv -f "arch-x32.o" "libseccomp_la-arch-x32.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-mips.lo `test -f 'arch-mips.c' || echo './'`arch-mips.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-aarch64-syscalls.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.07 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.08 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-arm.o" ".libs/libseccomp_la-arch-arm.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-arm.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-arm.o" "libseccomp_la-arch-arm.o"
+Front end time                       0.05 (CPU)       0.00 (elapsed)
+Back end time                        0.06 (CPU)       1.00 (elapsed)
+Total compilation time               0.12 (CPU)       1.00 (elapsed)
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-mips-syscalls.lo `test -f 'arch-mips-syscalls.c' || echo './'`arch-mips-syscalls.c
+libtool: compile: mv -f "arch-arm-syscalls.o" ".libs/libseccomp_la-arch-arm-syscalls.o"
+Front end time                       0.06 (CPU)       1.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.07 (CPU)       1.00 (elapsed)
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-arm-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips.c  -fPIC -DPIC
+libtool: compile: mv -f "arch-aarch64.o" ".libs/libseccomp_la-arch-aarch64.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-aarch64.c  -fPIC -DPIC >/dev/null 2>&1
+Could not create response file
+libtool: compile: mv -f "arch-aarch64.o" "libseccomp_la-arch-aarch64.o"
+libtool: compile: mv -f "arch-arm-syscalls.o" "libseccomp_la-arch-arm-syscalls.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-mips64.lo `test -f 'arch-mips64.c' || echo './'`arch-mips64.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-mips64-syscalls.lo `test -f 'arch-mips64-syscalls.c' || echo './'`arch-mips64-syscalls.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips-syscalls.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.05 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64.c  -fPIC -DPIC
+Could not create response file
+libtool: compile: mv -f "arch-aarch64-syscalls.o" ".libs/libseccomp_la-arch-aarch64-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-aarch64-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-aarch64-syscalls.o" "libseccomp_la-arch-aarch64-syscalls.o"
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.07 (CPU)       0.00 (elapsed)
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-mips64n32.lo `test -f 'arch-mips64n32.c' || echo './'`arch-mips64n32.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64-syscalls.c  -fPIC -DPIC
+libtool: compile: mv -f "arch-mips.o" ".libs/libseccomp_la-arch-mips.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips.c  -fPIC -DPIC >/dev/null 2>&1
+Could not create response file
+libtool: compile: mv -f "arch-mips.o" "libseccomp_la-arch-mips.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-mips64n32-syscalls.lo `test -f 'arch-mips64n32-syscalls.c' || echo './'`arch-mips64n32-syscalls.c
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.13 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-mips-syscalls.o" ".libs/libseccomp_la-arch-mips-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+Front end time                       0.04 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.05 (CPU)       0.00 (elapsed)
+Front end time                       0.05 (CPU)       0.00 (elapsed)
+Back end time                        1.94 (CPU)       2.00 (elapsed)
+Total compilation time               1.99 (CPU)       2.00 (elapsed)
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64n32.c  -fPIC -DPIC
+libtool: compile: mv -f "arch-mips64.o" ".libs/libseccomp_la-arch-mips64.o"
+libtool: compile: mv -f "hash.o" ".libs/libseccomp_la-hash.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64.c  -fPIC -DPIC >/dev/null 2>&1
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c hash.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-mips-syscalls.o" "libseccomp_la-arch-mips-syscalls.o"
+libtool: compile: mv -f "hash.o" "libseccomp_la-hash.o"
+libtool: compile: mv -f "arch-mips64.o" "libseccomp_la-arch-mips64.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-parisc.lo `test -f 'arch-parisc.c' || echo './'`arch-parisc.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-parisc-syscalls.lo `test -f 'arch-parisc-syscalls.c' || echo './'`arch-parisc-syscalls.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-parisc64.lo `test -f 'arch-parisc64.c' || echo './'`arch-parisc64.c
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64n32-syscalls.c  -fPIC -DPIC
+libtool: compile: mv -f "arch-mips64-syscalls.o" ".libs/libseccomp_la-arch-mips64-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+Could not create response file
+libtool: compile: mv -f "arch-mips64-syscalls.o" "libseccomp_la-arch-mips64-syscalls.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-ppc.lo `test -f 'arch-ppc.c' || echo './'`arch-ppc.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-parisc-syscalls.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-parisc.c  -fPIC -DPIC
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-parisc64.c  -fPIC -DPIC
+Could not create response file
+Could not create response file
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.08 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-mips64n32.o" ".libs/libseccomp_la-arch-mips64n32.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64n32.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-mips64n32.o" "libseccomp_la-arch-mips64n32.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-ppc-syscalls.lo `test -f 'arch-ppc-syscalls.c' || echo './'`arch-ppc-syscalls.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.06 (CPU)       1.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.13 (CPU)       1.00 (elapsed)
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.08 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-mips64n32-syscalls.o" ".libs/libseccomp_la-arch-mips64n32-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-mips64n32-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-parisc64.o" ".libs/libseccomp_la-arch-parisc64.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-parisc64.c  -fPIC -DPIC >/dev/null 2>&1
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-mips64n32-syscalls.o" "libseccomp_la-arch-mips64n32-syscalls.o"
+libtool: compile: mv -f "arch-parisc-syscalls.o" ".libs/libseccomp_la-arch-parisc-syscalls.o"
+libtool: compile: mv -f "arch-parisc64.o" "libseccomp_la-arch-parisc64.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc-syscalls.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-parisc-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+Could not create response file
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-ppc64.lo `test -f 'arch-ppc64.c' || echo './'`arch-ppc64.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-ppc64-syscalls.lo `test -f 'arch-ppc64-syscalls.c' || echo './'`arch-ppc64-syscalls.c
+libtool: compile: mv -f "arch-parisc-syscalls.o" "libseccomp_la-arch-parisc-syscalls.o"
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.08 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-parisc.o" ".libs/libseccomp_la-arch-parisc.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-parisc.c  -fPIC -DPIC >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-s390.lo `test -f 'arch-s390.c' || echo './'`arch-s390.c
+Front end time                       0.04 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.05 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-parisc.o" "libseccomp_la-arch-parisc.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-s390-syscalls.lo `test -f 'arch-s390-syscalls.c' || echo './'`arch-s390-syscalls.c
+libtool: compile: mv -f "arch-ppc.o" ".libs/libseccomp_la-arch-ppc.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-ppc.o" "libseccomp_la-arch-ppc.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-s390x.lo `test -f 'arch-s390x.c' || echo './'`arch-s390x.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc64-syscalls.c  -fPIC -DPIC
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc64.c  -fPIC -DPIC
+Could not create response file
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390.c  -fPIC -DPIC
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390-syscalls.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.05 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390x.c  -fPIC -DPIC
+libtool: compile: mv -f "arch-ppc-syscalls.o" ".libs/libseccomp_la-arch-ppc-syscalls.o"
+Could not create response file
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-ppc-syscalls.o" "libseccomp_la-arch-ppc-syscalls.o"
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o libseccomp_la-arch-s390x-syscalls.lo `test -f 'arch-s390x-syscalls.c' || echo './'`arch-s390x-syscalls.c
+Front end time                       0.04 (CPU)       0.00 (elapsed)
+Back end time                        0.01 (CPU)       0.00 (elapsed)
+Total compilation time               0.05 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-ppc64.o" ".libs/libseccomp_la-arch-ppc64.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc64.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-ppc64.o" "libseccomp_la-arch-ppc64.o"
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.07 (CPU)       0.00 (elapsed)
+Total compilation time               0.12 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-ppc64-syscalls.o" ".libs/libseccomp_la-arch-ppc64-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-ppc64-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-ppc64-syscalls.o" "libseccomp_la-arch-ppc64-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390x-syscalls.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.08 (CPU)       0.00 (elapsed)
+Back end time                        0.11 (CPU)       0.00 (elapsed)
+Total compilation time               0.19 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-s390.o" ".libs/libseccomp_la-arch-s390.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-s390.o" "libseccomp_la-arch-s390.o"
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.12 (CPU)       0.00 (elapsed)
+Total compilation time               0.18 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-s390-syscalls.o" ".libs/libseccomp_la-arch-s390-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+Front end time                       0.08 (CPU)       0.00 (elapsed)
+Back end time                        0.11 (CPU)       0.00 (elapsed)
+Total compilation time               0.19 (CPU)       0.00 (elapsed)
+libtool: compile: mv -f "arch-s390-syscalls.o" "libseccomp_la-arch-s390-syscalls.o"
+libtool: compile: mv -f "arch-s390x.o" ".libs/libseccomp_la-arch-s390x.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390x.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-s390x.o" "libseccomp_la-arch-s390x.o"
+Front end time                       0.06 (CPU)       0.00 (elapsed)
+Back end time                        0.12 (CPU)       1.00 (elapsed)
+Total compilation time               0.18 (CPU)       1.00 (elapsed)
+libtool: compile: mv -f "arch-s390x-syscalls.o" ".libs/libseccomp_la-arch-s390x-syscalls.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c arch-s390x-syscalls.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "arch-s390x-syscalls.o" "libseccomp_la-arch-s390x-syscalls.o"
+Front end time                       0.10 (CPU)       0.00 (elapsed)
+Back end time                        3.68 (CPU)       4.00 (elapsed)
+Total compilation time               3.78 (CPU)       4.00 (elapsed)
+libtool: compile: mv -f "db.o" ".libs/libseccomp_la-db.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c db.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "db.o" "libseccomp_la-db.o"
+Front end time                       0.12 (CPU)       0.00 (elapsed)
+Back end time                       25.14 (CPU)      25.00 (elapsed)
+Total compilation time              25.27 (CPU)      25.00 (elapsed)
+libtool: compile: mv -f "gen_bpf.o" ".libs/libseccomp_la-gen_bpf.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c gen_bpf.c  -fPIC -DPIC >/dev/null 2>&1
+libtool: compile: mv -f "gen_bpf.o" "libseccomp_la-gen_bpf.o"
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -Wall  -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -fPIC -DPIC -fvisibility=hidden -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,relro   -version-number 2:3:3  -o libseccomp.la -rpath /usr/lib/x86_64-linux-gnu libseccomp_la-api.lo libseccomp_la-system.lo libseccomp_la-gen_pfc.lo libseccomp_la-gen_bpf.lo libseccomp_la-hash.lo libseccomp_la-db.lo libseccomp_la-arch.lo libseccomp_la-arch-x86.lo libseccomp_la-arch-x86-syscalls.lo libseccomp_la-arch-x86_64.lo libseccomp_la-arch-x86_64-syscalls.lo libseccomp_la-arch-x32.lo libseccomp_la-arch-x32-syscalls.lo libseccomp_la-arch-arm.lo libseccomp_la-arch-arm-syscalls.lo libseccomp_la-arch-aarch64.lo libseccomp_la-arch-aarch64-syscalls.lo libseccomp_la-arch-mips.lo libseccomp_la-arch-mips-syscalls.lo libseccomp_la-arch-mips64.lo libseccomp_la-arch-mips64-syscalls.lo libseccomp_la-arch-mips64n32.lo libseccomp_la-arch-mips64n32-syscalls.lo libseccomp_la-arch-parisc.lo libseccomp_la-arch-parisc-syscalls.lo libseccomp_la-arch-parisc64.lo libseccomp_la-arch-ppc.lo libseccomp_la-arch-ppc-syscalls.lo libseccomp_la-arch-ppc64.lo libseccomp_la-arch-ppc64-syscalls.lo libseccomp_la-arch-s390.lo libseccomp_la-arch-s390-syscalls.lo libseccomp_la-arch-s390x.lo libseccomp_la-arch-s390x-syscalls.lo  
+libtool: link: icc.pl -shared  -fPIC -DPIC  .libs/libseccomp_la-api.o .libs/libseccomp_la-system.o .libs/libseccomp_la-gen_pfc.o .libs/libseccomp_la-gen_bpf.o .libs/libseccomp_la-hash.o .libs/libseccomp_la-db.o .libs/libseccomp_la-arch.o .libs/libseccomp_la-arch-x86.o .libs/libseccomp_la-arch-x86-syscalls.o .libs/libseccomp_la-arch-x86_64.o .libs/libseccomp_la-arch-x86_64-syscalls.o .libs/libseccomp_la-arch-x32.o .libs/libseccomp_la-arch-x32-syscalls.o .libs/libseccomp_la-arch-arm.o .libs/libseccomp_la-arch-arm-syscalls.o .libs/libseccomp_la-arch-aarch64.o .libs/libseccomp_la-arch-aarch64-syscalls.o .libs/libseccomp_la-arch-mips.o .libs/libseccomp_la-arch-mips-syscalls.o .libs/libseccomp_la-arch-mips64.o .libs/libseccomp_la-arch-mips64-syscalls.o .libs/libseccomp_la-arch-mips64n32.o .libs/libseccomp_la-arch-mips64n32-syscalls.o .libs/libseccomp_la-arch-parisc.o .libs/libseccomp_la-arch-parisc-syscalls.o .libs/libseccomp_la-arch-parisc64.o .libs/libseccomp_la-arch-ppc.o .libs/libseccomp_la-arch-ppc-syscalls.o .libs/libseccomp_la-arch-ppc64.o .libs/libseccomp_la-arch-ppc64-syscalls.o .libs/libseccomp_la-arch-s390.o .libs/libseccomp_la-arch-s390-syscalls.o .libs/libseccomp_la-arch-s390x.o .libs/libseccomp_la-arch-s390x-syscalls.o    -g -O2 -march=native -g -O2 -march=native -Wl,-z -Wl,relro   -Wl,-soname -Wl,libseccomp.so.2 -o .libs/libseccomp.so.2.3.3
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: (cd ".libs" && rm -f "libseccomp.so.2" && ln -s "libseccomp.so.2.3.3" "libseccomp.so.2")
+libtool: link: (cd ".libs" && rm -f "libseccomp.so" && ln -s "libseccomp.so.2.3.3" "libseccomp.so")
+libtool: link: xiar cru .libs/libseccomp.a  libseccomp_la-api.o libseccomp_la-system.o libseccomp_la-gen_pfc.o libseccomp_la-gen_bpf.o libseccomp_la-hash.o libseccomp_la-db.o libseccomp_la-arch.o libseccomp_la-arch-x86.o libseccomp_la-arch-x86-syscalls.o libseccomp_la-arch-x86_64.o libseccomp_la-arch-x86_64-syscalls.o libseccomp_la-arch-x32.o libseccomp_la-arch-x32-syscalls.o libseccomp_la-arch-arm.o libseccomp_la-arch-arm-syscalls.o libseccomp_la-arch-aarch64.o libseccomp_la-arch-aarch64-syscalls.o libseccomp_la-arch-mips.o libseccomp_la-arch-mips-syscalls.o libseccomp_la-arch-mips64.o libseccomp_la-arch-mips64-syscalls.o libseccomp_la-arch-mips64n32.o libseccomp_la-arch-mips64n32-syscalls.o libseccomp_la-arch-parisc.o libseccomp_la-arch-parisc-syscalls.o libseccomp_la-arch-parisc64.o libseccomp_la-arch-ppc.o libseccomp_la-arch-ppc-syscalls.o libseccomp_la-arch-ppc64.o libseccomp_la-arch-ppc64-syscalls.o libseccomp_la-arch-s390.o libseccomp_la-arch-s390-syscalls.o libseccomp_la-arch-s390x.o libseccomp_la-arch-s390x-syscalls.o
+xiar: executing 'x86_64-linux-gnu-ar'
+x86_64-linux-gnu-ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: ranlib .libs/libseccomp.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: ( cd ".libs" && rm -f "libseccomp.la" && ln -s "../libseccomp.la" "libseccomp.la" )
+make[5]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src'
+Making all in python
+make[5]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+VERSION_RELEASE="2.3.3" CPPFLAGS="-I\../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2" CFLAGS="-Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security" LDFLAGS="-Wl,-z -Wl,relro " /usr/bin/env python ./setup.py build && touch build
+python: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by python)
+running build
+running build_ext
+cythoning seccomp.pyx to seccomp.c
+building 'seccomp' extension
+creating build
+creating build/temp.linux-x86_64-2.7
+icc.pl -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -I../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python2.7 -c seccomp.c -o build/temp.linux-x86_64-2.7/seccomp.o -fno-strict-aliasing
+Front end time                       0.59 (CPU)       0.00 (elapsed)
+Back end time                       29.11 (CPU)      29.00 (elapsed)
+Total compilation time              29.70 (CPU)      29.00 (elapsed)
+creating build/lib.linux-x86_64-2.7
+icc.pl -shared -Wl,-z -Wl,relro -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -I../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-2.7/seccomp.o ../.libs/libseccomp.a -o build/lib.linux-x86_64-2.7/seccomp.so
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[5]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src'
+Making all in tools
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/tools'
+icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o scmp_sys_resolver.o scmp_sys_resolver.c
+icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o scmp_arch_detect.o scmp_arch_detect.c
+icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o scmp_bpf_disasm.o scmp_bpf_disasm.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o util.lo util.c
+icc.pl -DHAVE_CONFIG_H -I. -I..  -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c -o scmp_bpf_sim.o scmp_bpf_sim.c
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c util.c  -fPIC -DPIC
+Could not create response file
+Front end time                       0.09 (CPU)       0.00 (elapsed)
+Back end time                        0.06 (CPU)       0.00 (elapsed)
+Total compilation time               0.15 (CPU)       0.00 (elapsed)
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -static  -o scmp_arch_detect scmp_arch_detect.o ../src/libseccomp.la 
+Front end time                       0.10 (CPU)       0.00 (elapsed)
+Back end time                        0.06 (CPU)       0.00 (elapsed)
+Total compilation time               0.16 (CPU)       0.00 (elapsed)
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -static  -o scmp_sys_resolver scmp_sys_resolver.o ../src/libseccomp.la 
+Front end time                       0.07 (CPU)       0.00 (elapsed)
+Back end time                        0.04 (CPU)       1.00 (elapsed)
+Total compilation time               0.12 (CPU)       1.00 (elapsed)
+libtool: compile: mv -f "util.o" ".libs/util.o"
+libtool: compile:  icc.pl -DHAVE_CONFIG_H -I. -I.. -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -c util.c  -fPIC -DPIC >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -module  -o util.la  util.lo  
+Front end time                       0.10 (CPU)       0.00 (elapsed)
+Back end time                        0.22 (CPU)       1.00 (elapsed)
+Total compilation time               0.32 (CPU)       1.00 (elapsed)
+libtool: link: icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -o scmp_arch_detect scmp_arch_detect.o  ../src/.libs/libseccomp.a
+libtool: link: icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -o scmp_sys_resolver scmp_sys_resolver.o  ../src/.libs/libseccomp.a
+libtool: link: xiar cru .libs/util.a .libs/util.o 
+Front end time                       0.10 (CPU)       0.00 (elapsed)
+Back end time                        0.37 (CPU)       1.00 (elapsed)
+Total compilation time               0.48 (CPU)       1.00 (elapsed)
+xiar: executing 'x86_64-linux-gnu-ar'
+x86_64-linux-gnu-ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: ranlib .libs/util.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: ( cd ".libs" && rm -f "util.la" && ln -s "../util.la" "util.la" )
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,relro  -o scmp_bpf_disasm scmp_bpf_disasm.o util.la 
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,relro  -o scmp_bpf_sim scmp_bpf_sim.o util.la 
+libtool: link: icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,relro -o scmp_bpf_disasm scmp_bpf_disasm.o  ./.libs/util.a
+libtool: link: icc.pl -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,relro -o scmp_bpf_sim scmp_bpf_sim.o  ./.libs/util.a
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/tools'
+Making all in tests
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/tests'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/tests'
+Making all in doc
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/doc'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/doc'
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+make[2]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+set -e && for pyver in `py3versions -s`; do \
+	dh_auto_build --sourcedirectory=src/python -- PYTHON=$pyver; \
+done
+/usr/bin/python3: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/bin/python3)
+	cd src/python && make -j8 PYTHON=python3.7
+make[2]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[1]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary --with python2,python3
+   dh_testroot
+   dh_prep
+	rm -f -- debian/libseccomp-dev.substvars debian/libseccomp2.substvars debian/seccomp.substvars debian/python-seccomp.substvars debian/python3-seccomp.substvars
+	rm -fr -- debian/.debhelper/generated/libseccomp-dev/ debian/libseccomp-dev/ debian/tmp/ debian/.debhelper/generated/libseccomp2/ debian/libseccomp2/ debian/.debhelper/generated/seccomp/ debian/seccomp/ debian/.debhelper/generated/python-seccomp/ debian/python-seccomp/ debian/.debhelper/generated/python3-seccomp/ debian/python3-seccomp/
+	rm -f debian/libseccomp-dev.debhelper.log debian/libseccomp2.debhelper.log debian/python-seccomp.debhelper.log debian/python3-seccomp.debhelper.log debian/seccomp.debhelper.log
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+dh_auto_install
+	install -d debian/libseccomp-dev debian/libseccomp2 debian/seccomp debian/python-seccomp debian/python3-seccomp
+	make -j1 install DESTDIR=/dev/shm/apt/libseccomp/libseccomp/debian/tmp AM_UPDATE_INFO_DIR=no
+make[2]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+Making install in include
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/include'
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/include'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/include'
+ /usr/bin/install -m 644 seccomp.h '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/include'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/include'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/include'
+Making install in src
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src'
+Making install in .
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src'
+make[5]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src'
+ /bin/mkdir -p '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu'
+ /bin/bash ../libtool   --mode=install /usr/bin/install   libseccomp.la '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu'
+libtool: install: /usr/bin/install .libs/libseccomp.so.2.3.3 /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3
+libtool: install: (cd /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libseccomp.so.2.3.3 libseccomp.so.2 || { rm -f libseccomp.so.2 && ln -s libseccomp.so.2.3.3 libseccomp.so.2; }; })
+libtool: install: (cd /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libseccomp.so.2.3.3 libseccomp.so || { rm -f libseccomp.so && ln -s libseccomp.so.2.3.3 libseccomp.so; }; })
+libtool: install: /usr/bin/install .libs/libseccomp.lai /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.la
+libtool: install: /usr/bin/install .libs/libseccomp.a /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.a
+libtool: install: chmod 644 /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.a
+libtool: install: ranlib /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: warning: remember to run 'libtool --finish /usr/lib/x86_64-linux-gnu'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src'
+Making install in python
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[5]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+VERSION_RELEASE="2.3.3" CPPFLAGS="-I\../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2" CFLAGS="-Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security" LDFLAGS="-Wl,-z -Wl,relro " /usr/bin/env python ./setup.py install --prefix=/dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr
+python: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by python)
+running install
+running build
+running build_ext
+skipping 'seccomp.c' Cython extension (up-to-date)
+running install_lib
+creating /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/python2.7
+creating /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/python2.7/site-packages
+copying build/lib.linux-x86_64-2.7/seccomp.so -> /dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr/lib/python2.7/site-packages
+copying build/lib.linux-x86_64-2.7/seccomp.so.response -> /dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr/lib/python2.7/site-packages
+running install_egg_info
+Writing /dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr/lib/python2.7/site-packages/seccomp-2.3.3-py2.7.egg-info
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src'
+Making install in tools
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/tools'
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/tools'
+ /bin/mkdir -p '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install scmp_sys_resolver '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/bin'
+libtool: install: /usr/bin/install scmp_sys_resolver /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/bin/scmp_sys_resolver
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/tools'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/tools'
+Making install in tests
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/tests'
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/tests'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/tests'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/tests'
+Making install in doc
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/doc'
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/share/man/man1'
+ /usr/bin/install -m 644 man/man1/scmp_sys_resolver.1 '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/share/man/man1'
+ /bin/mkdir -p '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/share/man/man3'
+ /usr/bin/install -m 644 man/man3/seccomp_arch_add.3 man/man3/seccomp_arch_exist.3 man/man3/seccomp_arch_native.3 man/man3/seccomp_arch_remove.3 man/man3/seccomp_arch_resolve_name.3 man/man3/seccomp_attr_get.3 man/man3/seccomp_attr_set.3 man/man3/seccomp_export_bpf.3 man/man3/seccomp_export_pfc.3 man/man3/seccomp_init.3 man/man3/seccomp_load.3 man/man3/seccomp_merge.3 man/man3/seccomp_release.3 man/man3/seccomp_reset.3 man/man3/seccomp_rule_add.3 man/man3/seccomp_rule_add_array.3 man/man3/seccomp_rule_add_exact.3 man/man3/seccomp_rule_add_exact_array.3 man/man3/seccomp_syscall_priority.3 man/man3/seccomp_syscall_resolve_name.3 man/man3/seccomp_syscall_resolve_name_arch.3 man/man3/seccomp_syscall_resolve_name_rewrite.3 man/man3/seccomp_syscall_resolve_num_arch.3 man/man3/seccomp_version.3 '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/share/man/man3'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/doc'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/doc'
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+make[4]: Entering directory '/dev/shm/apt/libseccomp/libseccomp'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig'
+ /usr/bin/install -m 644 libseccomp.pc '/dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig'
+make[4]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+make[2]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+set -e && for pyver in `py3versions -s`; do \
+	dh_auto_install --sourcedirectory=src/python -- PYTHON=$pyver; \
+done
+/usr/bin/python3: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/bin/python3)
+	cd src/python && make -j8 install DESTDIR=/dev/shm/apt/libseccomp/libseccomp/debian/tmp AM_UPDATE_INFO_DIR=no PYTHON=python3.7
+make[2]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[3]: Entering directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+VERSION_RELEASE="2.3.3" CPPFLAGS="-I\../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2" CFLAGS="-Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security" LDFLAGS="-Wl,-z -Wl,relro " python3.7 ./setup.py install --prefix=/dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr
+make[3]: Nothing to be done for 'install-data-am'.
+python3.7: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by python3.7)
+running install
+running build
+running build_ext
+skipping 'seccomp.c' Cython extension (up-to-date)
+building 'seccomp' extension
+creating build/temp.linux-x86_64-3.7
+icc.pl -DNDEBUG -g -fwrapv -O2 -Wall -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -I../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.7m -c seccomp.c -o build/temp.linux-x86_64-3.7/seccomp.o -fno-strict-aliasing
+Front end time                       0.65 (CPU)       0.00 (elapsed)
+Back end time                       31.06 (CPU)      31.00 (elapsed)
+Total compilation time              31.70 (CPU)      31.00 (elapsed)
+creating build/lib.linux-x86_64-3.7
+icc.pl -shared -Wl,-z -Wl,relro -Wall -g -O2 -fdebug-prefix-map=/dev/shm/apt/libseccomp/libseccomp=. -Wformat -march=native -pipe -Wformat-security -I../../include -I../../include -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.7/seccomp.o ../.libs/libseccomp.a -o build/lib.linux-x86_64-3.7/seccomp.cpython-37m-x86_64-linux-gnu.so
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+running install_lib
+creating /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/python3.7
+creating /dev/shm/apt/libseccomp/libseccomp/debian/tmp/usr/lib/python3.7/site-packages
+copying build/lib.linux-x86_64-3.7/seccomp.cpython-37m-x86_64-linux-gnu.so -> /dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr/lib/python3.7/site-packages
+copying build/lib.linux-x86_64-3.7/seccomp.cpython-37m-x86_64-linux-gnu.so.response -> /dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr/lib/python3.7/site-packages
+running install_egg_info
+Writing /dev/shm/apt/libseccomp/libseccomp/debian/tmp//usr/lib/python3.7/site-packages/seccomp-2.3.3-py3.7.egg-info
+make[3]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[2]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp/src/python'
+make[1]: Leaving directory '/dev/shm/apt/libseccomp/libseccomp'
+   dh_install
+	install -d debian/libseccomp-dev//usr/include
+	cp --reflink=auto -a debian/tmp/usr/include/seccomp.h debian/libseccomp-dev//usr/include/
+	install -d debian/libseccomp-dev//usr/lib/x86_64-linux-gnu
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.a debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.so debian/libseccomp-dev//usr/lib/x86_64-linux-gnu/
+	install -d debian/libseccomp-dev//usr/lib/x86_64-linux-gnu/pkgconfig
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig/libseccomp.pc debian/libseccomp-dev//usr/lib/x86_64-linux-gnu/pkgconfig/
+	install -d debian/.debhelper/generated/libseccomp-dev
+	install -d debian/libseccomp2//usr/lib/x86_64-linux-gnu
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.so.2 debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3 debian/libseccomp2//usr/lib/x86_64-linux-gnu/
+	install -d debian/.debhelper/generated/libseccomp2
+	install -d debian/seccomp//usr/bin
+	cp --reflink=auto -a debian/tmp/usr/bin/scmp_sys_resolver debian/seccomp//usr/bin/
+	install -d debian/.debhelper/generated/seccomp
+	install -d debian/python-seccomp//usr/lib/python2.7/site-packages
+	cp --reflink=auto -a debian/tmp/usr/lib/python2.7/site-packages/seccomp.so debian/python-seccomp//usr/lib/python2.7/site-packages/
+	install -d debian/.debhelper/generated/python-seccomp
+	install -d debian/python3-seccomp//usr/lib/python3.7/site-packages
+	cp --reflink=auto -a debian/tmp/usr/lib/python3.7/site-packages/seccomp.cpython-37m-x86_64-linux-gnu.so debian/python3-seccomp//usr/lib/python3.7/site-packages/
+	install -d debian/.debhelper/generated/python3-seccomp
+   dh_installdocs
+	install -d debian/libseccomp-dev/usr/share/doc/libseccomp-dev
+	install -p -m0644 debian/copyright debian/libseccomp-dev/usr/share/doc/libseccomp-dev/copyright
+	install -d debian/libseccomp2/usr/share/doc/libseccomp2
+	install -p -m0644 debian/copyright debian/libseccomp2/usr/share/doc/libseccomp2/copyright
+	install -d debian/seccomp/usr/share/doc/seccomp
+	install -p -m0644 debian/copyright debian/seccomp/usr/share/doc/seccomp/copyright
+	install -d debian/python-seccomp/usr/share/doc/python-seccomp
+	install -p -m0644 debian/copyright debian/python-seccomp/usr/share/doc/python-seccomp/copyright
+	install -d debian/python3-seccomp/usr/share/doc/python3-seccomp
+	install -p -m0644 debian/copyright debian/python3-seccomp/usr/share/doc/python3-seccomp/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/libseccomp-dev/usr/share/doc/libseccomp-dev/changelog.Debian
+	install -p -m0644 ./CHANGELOG debian/libseccomp-dev/usr/share/doc/libseccomp-dev/changelog
+	install -p -m0644 debian/changelog debian/seccomp/usr/share/doc/seccomp/changelog.Debian
+	install -p -m0644 ./CHANGELOG debian/seccomp/usr/share/doc/seccomp/changelog
+	install -p -m0644 debian/changelog debian/libseccomp2/usr/share/doc/libseccomp2/changelog.Debian
+	install -p -m0644 ./CHANGELOG debian/libseccomp2/usr/share/doc/libseccomp2/changelog
+	install -p -m0644 debian/changelog debian/python-seccomp/usr/share/doc/python-seccomp/changelog.Debian
+	install -p -m0644 ./CHANGELOG debian/python-seccomp/usr/share/doc/python-seccomp/changelog
+	install -p -m0644 debian/changelog debian/python3-seccomp/usr/share/doc/python3-seccomp/changelog.Debian
+	install -p -m0644 ./CHANGELOG debian/python3-seccomp/usr/share/doc/python3-seccomp/changelog
+   dh_installman
+   dh_python2
+/usr/bin/python: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/bin/python)
+/usr/bin/python3: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/bin/python3)
+D: dh_python2 dh_python2:393: version: 3.20180927
+D: dh_python2 dh_python2:394: argv: ['/usr/share/dh-python/dh_python2']
+D: dh_python2 dh_python2:395: options: {'guess_versions': True, 'guess_deps': True, 'skip_private': False, 'verbose': False, 'arch': None, 'package': None, 'no_package': None, 'compile_all': False, 'vrange': None, 'regexpr': None, 'accept_upstream_versions': False, 'depends': None, 'depends_section': None, 'recommends': None, 'recommends_section': None, 'suggests': None, 'suggests_section': None, 'requires': None, 'namespaces': None, 'clean_pycentral': False, 'shebang': None, 'ignore_shebangs': False, 'ignore_namespace': False, 'clean_dbg_pkg': True, 'no_ext_rename': False, 'no_shebang_rewrite': False, 'O': None}
+D: dh_python2 dh_python2:396: args: []
+D: dh_python2 dh_python2:398: supported Python versions: 2.7 (default=2.7)
+D: dh_python2 debhelper:100: skipping package libseccomp-dev (missing ${python:Depends} in Depends)
+D: dh_python2 debhelper:100: skipping package libseccomp2 (missing ${python:Depends} in Depends)
+D: dh_python2 debhelper:100: skipping package seccomp (missing ${python:Depends} in Depends)
+D: dh_python2 debhelper:107: skipping package: python3-seccomp
+D: dh_python2 debhelper:153: source=libseccomp, binary packages=['python-seccomp']
+D: dh_python2 dh_python2:415: processing package python-seccomp...
+D: dh_python2 fs:49: moving files from debian/python-seccomp/usr/lib/python2.7/site-packages to debian/python-seccomp/usr/lib/python2.7/dist-packages/
+D: dh_python2 tools:230: invoking: python2.7 -c 'import sysconfig as s;print("__SEP__".join(i or "" for i in s.get_config_vars("SOABI", "MULTIARCH", "INCLUDEPY", "LIBPL", "LDLIBRARY")))'
+I: dh_python2 fs:329: renaming seccomp.so to seccomp.x86_64-linux-gnu.so
+D: dh_python2 fs:246: package python-seccomp details = {'requires.txt': set(), 'egg-info': set(), 'nsp.txt': set(), 'shebangs': set(), 'public_vers': {Version('2.7')}, 'private_dirs': {}, 'compile': False, 'ext_vers': {Version('2.7')}, 'ext_no_version': set()}
+D: dh_python2 depends:114: generating dependencies for package python-seccomp
+D: dh_python2 depends:272: D={'python:any (>= 2.7~)', 'python:any (<< 2.8)', 'python (>= 2.7~)', 'python (<< 2.8)'}; R=[]; S=[]; E=[], B=[]; RT=[]
+   dh_python3
+/usr/bin/python3: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/bin/python3)
+D: dh_python3 dh_python3:161: version: 3.20180927
+D: dh_python3 dh_python3:162: argv: ['/usr/bin/dh_python3']
+D: dh_python3 dh_python3:163: options: {'guess_deps': True, 'skip_private': False, 'verbose': False, 'arch': None, 'package': None, 'no_package': None, 'compile_all': False, 'vrange': None, 'regexpr': None, 'accept_upstream_versions': False, 'depends': None, 'depends_section': None, 'recommends': None, 'recommends_section': None, 'suggests': None, 'suggests_section': None, 'requires': None, 'shebang': None, 'ignore_shebangs': False, 'clean_dbg_pkg': True, 'no_ext_rename': False, 'no_shebang_rewrite': False, 'O': None}
+D: dh_python3 dh_python3:164: args: []
+D: dh_python3 dh_python3:166: supported Python versions: 3.7 (default=3.7)
+D: dh_python3 debhelper:100: skipping package libseccomp-dev (missing ${python3:Depends} in Depends)
+D: dh_python3 debhelper:100: skipping package libseccomp2 (missing ${python3:Depends} in Depends)
+D: dh_python3 debhelper:100: skipping package seccomp (missing ${python3:Depends} in Depends)
+D: dh_python3 debhelper:107: skipping package: python-seccomp
+D: dh_python3 debhelper:153: source=libseccomp, binary packages=['python3-seccomp']
+D: dh_python3 dh_python3:183: processing package python3-seccomp...
+D: dh_python3 fs:49: moving files from debian/python3-seccomp/usr/lib/python3.7/site-packages to debian/python3-seccomp/usr/lib/python3/dist-packages/
+D: dh_python3 fs:246: package python3-seccomp details = {'requires.txt': set(), 'egg-info': set(), 'nsp.txt': set(), 'shebangs': set(), 'public_vers': {Version('3')}, 'private_dirs': {}, 'compile': False, 'ext_vers': {Version('3.7')}, 'ext_no_version': set()}
+D: dh_python3 depends:114: generating dependencies for package python3-seccomp
+D: dh_python3 depends:272: D={'python3 (>= 3.7~)', 'python3 (<< 3.8)'}; R=[]; S=[]; E=[], B=[]; RT=[]
+   dh_perl
+   dh_link
+	rm -f debian/libseccomp-dev/usr/lib/x86_64-linux-gnu/libseccomp.so
+	ln -s libseccomp.so.2.3.3 debian/libseccomp-dev/usr/lib/x86_64-linux-gnu/libseccomp.so
+	rm -f debian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2
+	ln -s libseccomp.so.2.3.3 debian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2
+   dh_strip_nondeterminism
+   dh_compress
+	cd debian/libseccomp-dev
+	cd debian/libseccomp2
+	cd debian/seccomp
+	cd debian/python-seccomp
+	cd debian/python3-seccomp
+	chmod a-x usr/share/doc/libseccomp-dev/changelog usr/share/doc/libseccomp-dev/changelog.Debian
+	chmod a-x usr/share/doc/libseccomp2/changelog usr/share/doc/libseccomp2/changelog.Debian
+	chmod a-x usr/share/doc/seccomp/changelog usr/share/doc/seccomp/changelog.Debian
+	gzip -9nf usr/share/doc/libseccomp-dev/changelog usr/share/doc/libseccomp-dev/changelog.Debian
+	chmod a-x usr/share/doc/python3-seccomp/changelog usr/share/doc/python3-seccomp/changelog.Debian
+	chmod a-x usr/share/doc/python-seccomp/changelog usr/share/doc/python-seccomp/changelog.Debian
+	gzip -9nf usr/share/doc/libseccomp2/changelog usr/share/doc/libseccomp2/changelog.Debian
+	gzip -9nf usr/share/doc/seccomp/changelog usr/share/doc/seccomp/changelog.Debian
+	gzip -9nf usr/share/doc/python-seccomp/changelog usr/share/doc/python-seccomp/changelog.Debian
+	gzip -9nf usr/share/doc/python3-seccomp/changelog usr/share/doc/python3-seccomp/changelog.Debian
+	cd '/dev/shm/apt/libseccomp/libseccomp'
+	cd '/dev/shm/apt/libseccomp/libseccomp'
+	cd '/dev/shm/apt/libseccomp/libseccomp'
+	cd '/dev/shm/apt/libseccomp/libseccomp'
+	cd '/dev/shm/apt/libseccomp/libseccomp'
+   dh_fixperms
+	find debian/libseccomp-dev -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libseccomp2 -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/seccomp -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/python-seccomp -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/python3-seccomp -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libseccomp-dev ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/seccomp ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libseccomp2 ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/python-seccomp ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/python3-seccomp ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libseccomp2/usr/share/doc -type f -a -true -a ! -regex 'debian/libseccomp2/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libseccomp-dev/usr/share/doc -type f -a -true -a ! -regex 'debian/libseccomp-dev/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/seccomp/usr/share/doc -type f -a -true -a ! -regex 'debian/seccomp/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python-seccomp/usr/share/doc -type f -a -true -a ! -regex 'debian/python-seccomp/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python3-seccomp/usr/share/doc -type f -a -true -a ! -regex 'debian/python3-seccomp/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libseccomp2/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libseccomp-dev/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/python-seccomp/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/python3-seccomp/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/seccomp/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libseccomp2 -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python-seccomp -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/seccomp -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libseccomp-dev/usr/include -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python3-seccomp -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libseccomp2/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/seccomp/usr/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/python-seccomp/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/libseccomp-dev -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python3-seccomp/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/libseccomp-dev/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+   dh_missing
+   dh_strip
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libseccomp-dev/usr/lib/x86_64-linux-gnu/libseccomp.a
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/seccomp/dbgsym-root/usr/lib/debug/.build-id/ab
+	objcopy --only-keep-debug --compress-debug-sections debian/seccomp/usr/bin/scmp_sys_resolver debian/.debhelper/seccomp/dbgsym-root/usr/lib/debug/.build-id/ab/090be82d1085696416002bd1fd27eb6ad8291c.debug
+	install -d debian/.debhelper/libseccomp2/dbgsym-root/usr/lib/debug/.build-id/87
+	objcopy --only-keep-debug --compress-debug-sections debian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3 debian/.debhelper/libseccomp2/dbgsym-root/usr/lib/debug/.build-id/87/2f50c2993388defef09bb172a6508a93a5760c.debug
+	install -d debian/.debhelper/python-seccomp/dbgsym-root/usr/lib/debug/.build-id/10
+	objcopy --only-keep-debug --compress-debug-sections debian/python-seccomp/usr/lib/python2.7/dist-packages/seccomp.x86_64-linux-gnu.so debian/.debhelper/python-seccomp/dbgsym-root/usr/lib/debug/.build-id/10/5ed76466309a18480e0d7dea3e6403db842cef.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/python3-seccomp/dbgsym-root/usr/lib/debug/.build-id/9f
+	objcopy --only-keep-debug --compress-debug-sections debian/python3-seccomp/usr/lib/python3/dist-packages/seccomp.cpython-37m-x86_64-linux-gnu.so debian/.debhelper/python3-seccomp/dbgsym-root/usr/lib/debug/.build-id/9f/73d5e8596d5af7a0c0dcbbf2f665ac63044eee.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/seccomp/dbgsym-root/usr/lib/debug/.build-id/ab/090be82d1085696416002bd1fd27eb6ad8291c.debug
+	chown 0:0 -- debian/.debhelper/seccomp/dbgsym-root/usr/lib/debug/.build-id/ab/090be82d1085696416002bd1fd27eb6ad8291c.debug
+	strip --remove-section=.comment --remove-section=.note debian/seccomp/usr/bin/scmp_sys_resolver
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/seccomp/dbgsym-root/usr/lib/debug/.build-id/ab/090be82d1085696416002bd1fd27eb6ad8291c.debug debian/seccomp/usr/bin/scmp_sys_resolver
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/seccomp/dbgsym-root/usr/share/doc
+	ln -s seccomp debian/.debhelper/seccomp/dbgsym-root/usr/share/doc/seccomp-dbgsym
+	chmod 0644 -- debian/.debhelper/libseccomp2/dbgsym-root/usr/lib/debug/.build-id/87/2f50c2993388defef09bb172a6508a93a5760c.debug
+	chown 0:0 -- debian/.debhelper/libseccomp2/dbgsym-root/usr/lib/debug/.build-id/87/2f50c2993388defef09bb172a6508a93a5760c.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/libseccomp2/dbgsym-root/usr/lib/debug/.build-id/87/2f50c2993388defef09bb172a6508a93a5760c.debug debian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/libseccomp2/dbgsym-root/usr/share/doc
+	ln -s libseccomp2 debian/.debhelper/libseccomp2/dbgsym-root/usr/share/doc/libseccomp2-dbgsym
+	chmod 0644 -- debian/.debhelper/python-seccomp/dbgsym-root/usr/lib/debug/.build-id/10/5ed76466309a18480e0d7dea3e6403db842cef.debug
+	chown 0:0 -- debian/.debhelper/python-seccomp/dbgsym-root/usr/lib/debug/.build-id/10/5ed76466309a18480e0d7dea3e6403db842cef.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/python-seccomp/usr/lib/python2.7/dist-packages/seccomp.x86_64-linux-gnu.so
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/python3-seccomp/dbgsym-root/usr/lib/debug/.build-id/9f/73d5e8596d5af7a0c0dcbbf2f665ac63044eee.debug
+	chown 0:0 -- debian/.debhelper/python3-seccomp/dbgsym-root/usr/lib/debug/.build-id/9f/73d5e8596d5af7a0c0dcbbf2f665ac63044eee.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/python3-seccomp/usr/lib/python3/dist-packages/seccomp.cpython-37m-x86_64-linux-gnu.so
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/python-seccomp/dbgsym-root/usr/lib/debug/.build-id/10/5ed76466309a18480e0d7dea3e6403db842cef.debug debian/python-seccomp/usr/lib/python2.7/dist-packages/seccomp.x86_64-linux-gnu.so
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/python3-seccomp/dbgsym-root/usr/lib/debug/.build-id/9f/73d5e8596d5af7a0c0dcbbf2f665ac63044eee.debug debian/python3-seccomp/usr/lib/python3/dist-packages/seccomp.cpython-37m-x86_64-linux-gnu.so
+	install -d debian/.debhelper/python-seccomp/dbgsym-root/usr/share/doc
+	ln -s python-seccomp debian/.debhelper/python-seccomp/dbgsym-root/usr/share/doc/python-seccomp-dbgsym
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/python3-seccomp/dbgsym-root/usr/share/doc
+	ln -s python3-seccomp debian/.debhelper/python3-seccomp/dbgsym-root/usr/share/doc/python3-seccomp-dbgsym
+   dh_makeshlibs
+	rm -f debian/libseccomp-dev/DEBIAN/shlibs
+	rm -f debian/libseccomp2/DEBIAN/shlibs
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/libseccomp2/DEBIAN
+	echo "libseccomp 2 libseccomp2" >> debian/libseccomp2/DEBIAN/shlibs
+	chmod 0644 -- debian/libseccomp2/DEBIAN/shlibs
+	chown 0:0 -- debian/libseccomp2/DEBIAN/shlibs
+	dpkg-gensymbols -plibseccomp2 -Idebian/libseccomp2.symbols -Pdebian/libseccomp2 -edebian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-gensymbols: warning: some new symbols appeared in the symbols file: see diff output below
+dpkg-gensymbols: warning: debian/libseccomp2/DEBIAN/symbols doesn't match completely debian/libseccomp2.symbols
+--- debian/libseccomp2.symbols (libseccomp2_2.3.3-4_amd64)
++++ dpkg-gensymbolsK70frk	2019-01-06 03:01:24.451275134 +0100
+@@ -1,5 +1,38 @@
+ libseccomp.so.2 libseccomp2 #MINVER#
+ * Build-Depends-Package: libseccomp-dev
++ __cacheSize@Base 2.3.3-4
++ __intel_avx_rep_memcpy@Base 2.3.3-4
++ __intel_avx_rep_memset@Base 2.3.3-4
++ __intel_memcpy@Base 2.3.3-4
++ __intel_memset@Base 2.3.3-4
++ __intel_mic_avx512f_memcpy@Base 2.3.3-4
++ __intel_mic_avx512f_memset@Base 2.3.3-4
++ __intel_new_memcpy@Base 2.3.3-4
++ __intel_new_memset@Base 2.3.3-4
++ __intel_sse4_strdup@Base 2.3.3-4
++ __intel_ssse3_memcpy@Base 2.3.3-4
++ __intel_ssse3_memmove@Base 2.3.3-4
++ __intel_ssse3_rep_memcpy@Base 2.3.3-4
++ __intel_ssse3_rep_memmove@Base 2.3.3-4
++ _intel_fast_memcmp@Base 2.3.3-4
++ _intel_fast_memcpy.A@Base 2.3.3-4
++ _intel_fast_memcpy.J@Base 2.3.3-4
++ _intel_fast_memcpy.M@Base 2.3.3-4
++ _intel_fast_memcpy.P@Base 2.3.3-4
++ _intel_fast_memcpy.V@Base 2.3.3-4
++ _intel_fast_memcpy.Z@Base 2.3.3-4
++ _intel_fast_memcpy.a@Base 2.3.3-4
++ _intel_fast_memcpy@Base 2.3.3-4
++ _intel_fast_memmove.A@Base 2.3.3-4
++ _intel_fast_memmove.M@Base 2.3.3-4
++ _intel_fast_memmove.P@Base 2.3.3-4
++ _intel_fast_memmove@Base 2.3.3-4
++ _intel_fast_memset.A@Base 2.3.3-4
++ _intel_fast_memset.J@Base 2.3.3-4
++ _intel_fast_memset.V@Base 2.3.3-4
++ _intel_fast_memset.Z@Base 2.3.3-4
++ _intel_fast_memset.a@Base 2.3.3-4
++ _intel_fast_memset@Base 2.3.3-4
+  seccomp_arch_add@Base 1.0.1
+  seccomp_arch_exist@Base 1.0.1
+  seccomp_arch_native@Base 2.1.0
+	mv debian/.debhelper/generated/libseccomp2/triggers.new debian/.debhelper/generated/libseccomp2/triggers
+	rm -f debian/seccomp/DEBIAN/shlibs
+	rm -f debian/python-seccomp/DEBIAN/shlibs
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	rm -f debian/python3-seccomp/DEBIAN/shlibs
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+   dh_shlibdeps
+	dpkg-shlibdeps -Tdebian/libseccomp2.substvars debian/libseccomp2/usr/lib/x86_64-linux-gnu/libseccomp.so.2.3.3
+	install -d debian/seccomp/DEBIAN
+	dpkg-shlibdeps -Tdebian/seccomp.substvars debian/seccomp/usr/bin/scmp_sys_resolver
+	install -d debian/python-seccomp/DEBIAN
+	dpkg-shlibdeps -Tdebian/python-seccomp.substvars debian/python-seccomp/usr/lib/python2.7/dist-packages/seccomp.x86_64-linux-gnu.so
+	install -d debian/python3-seccomp/DEBIAN
+	dpkg-shlibdeps -Tdebian/python3-seccomp.substvars debian/python3-seccomp/usr/lib/python3/dist-packages/seccomp.cpython-37m-x86_64-linux-gnu.so
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+   dh_installdeb
+	install -d debian/libseccomp-dev/DEBIAN
+	install -p -m0644 debian/.debhelper/generated/libseccomp2/triggers debian/libseccomp2/DEBIAN/triggers
+   dh_gencontrol
+	echo misc:Depends= >> debian/libseccomp-dev.substvars
+	echo misc:Pre-Depends= >> debian/libseccomp-dev.substvars
+	dpkg-gencontrol -plibseccomp-dev -ldebian/changelog -Tdebian/libseccomp-dev.substvars -Pdebian/libseccomp-dev
+	echo misc:Depends= >> debian/seccomp.substvars
+	echo misc:Pre-Depends= >> debian/seccomp.substvars
+	install -d debian/.debhelper/seccomp/dbgsym-root/DEBIAN
+	dpkg-gencontrol -pseccomp -ldebian/changelog -Tdebian/seccomp.substvars -Pdebian/.debhelper/seccomp/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=seccomp-dbgsym "-DDepends=seccomp (= \${binary:Version})" "-DDescription=debug symbols for seccomp" -DBuild-Ids=ab090be82d1085696416002bd1fd27eb6ad8291c -DSection=debug -UReplaces -UBreaks
+	echo misc:Depends= >> debian/libseccomp2.substvars
+	echo misc:Pre-Depends= >> debian/libseccomp2.substvars
+	install -d debian/.debhelper/libseccomp2/dbgsym-root/DEBIAN
+	dpkg-gencontrol -plibseccomp2 -ldebian/changelog -Tdebian/libseccomp2.substvars -Pdebian/.debhelper/libseccomp2/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=libseccomp2-dbgsym "-DDepends=libseccomp2 (= \${binary:Version})" "-DDescription=debug symbols for libseccomp2" -DBuild-Ids=872f50c2993388defef09bb172a6508a93a5760c -DSection=debug -UReplaces -UBreaks
+	echo misc:Depends= >> debian/python3-seccomp.substvars
+	echo misc:Pre-Depends= >> debian/python3-seccomp.substvars
+	install -d debian/.debhelper/python3-seccomp/dbgsym-root/DEBIAN
+	dpkg-gencontrol -ppython3-seccomp -ldebian/changelog -Tdebian/python3-seccomp.substvars -Pdebian/.debhelper/python3-seccomp/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=python3-seccomp-dbgsym "-DDepends=python3-seccomp (= \${binary:Version})" "-DDescription=debug symbols for python3-seccomp" -DBuild-Ids=9f73d5e8596d5af7a0c0dcbbf2f665ac63044eee -DSection=debug -UReplaces -UBreaks
+	echo misc:Depends= >> debian/python-seccomp.substvars
+	echo misc:Pre-Depends= >> debian/python-seccomp.substvars
+	install -d debian/.debhelper/python-seccomp/dbgsym-root/DEBIAN
+	dpkg-gencontrol -ppython-seccomp -ldebian/changelog -Tdebian/python-seccomp.substvars -Pdebian/.debhelper/python-seccomp/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=python-seccomp-dbgsym "-DDepends=python-seccomp (= \${binary:Version})" "-DDescription=debug symbols for python-seccomp" -DBuild-Ids=105ed76466309a18480e0d7dea3e6403db842cef -DSection=debug -UReplaces -UBreaks
+	chmod 0644 -- debian/libseccomp-dev/DEBIAN/control
+	chown 0:0 -- debian/libseccomp-dev/DEBIAN/control
+dpkg-gencontrol: warning: package python3-seccomp: substitution variable ${python3:Provides} unused, but is defined
+dpkg-gencontrol: warning: package python3-seccomp: substitution variable ${python3:Versions} unused, but is defined
+	chmod 0644 -- debian/.debhelper/libseccomp2/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/libseccomp2/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -plibseccomp2 -ldebian/changelog -Tdebian/libseccomp2.substvars -Pdebian/libseccomp2
+	chmod 0644 -- debian/.debhelper/python3-seccomp/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/python3-seccomp/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -ppython3-seccomp -ldebian/changelog -Tdebian/python3-seccomp.substvars -Pdebian/python3-seccomp
+	chmod 0644 -- debian/.debhelper/seccomp/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/seccomp/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -pseccomp -ldebian/changelog -Tdebian/seccomp.substvars -Pdebian/seccomp
+dpkg-gencontrol: warning: package python-seccomp: substitution variable ${python:Provides} unused, but is defined
+dpkg-gencontrol: warning: package python-seccomp: substitution variable ${python:Versions} unused, but is defined
+	chmod 0644 -- debian/.debhelper/python-seccomp/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/python-seccomp/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -ppython-seccomp -ldebian/changelog -Tdebian/python-seccomp.substvars -Pdebian/python-seccomp
+	chmod 0644 -- debian/libseccomp2/DEBIAN/control
+	chown 0:0 -- debian/libseccomp2/DEBIAN/control
+dpkg-gencontrol: warning: package python3-seccomp: substitution variable ${python3:Provides} unused, but is defined
+dpkg-gencontrol: warning: package python3-seccomp: substitution variable ${python3:Versions} unused, but is defined
+	chmod 0644 -- debian/python3-seccomp/DEBIAN/control
+	chown 0:0 -- debian/python3-seccomp/DEBIAN/control
+	chmod 0644 -- debian/seccomp/DEBIAN/control
+	chown 0:0 -- debian/seccomp/DEBIAN/control
+dpkg-gencontrol: warning: package python-seccomp: substitution variable ${python:Provides} unused, but is defined
+dpkg-gencontrol: warning: package python-seccomp: substitution variable ${python:Versions} unused, but is defined
+	chmod 0644 -- debian/python-seccomp/DEBIAN/control
+	chown 0:0 -- debian/python-seccomp/DEBIAN/control
+   dh_md5sums
+	cd debian/libseccomp-dev >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/libseccomp2 >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/seccomp >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/python-seccomp >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/python3-seccomp >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/seccomp/DEBIAN/md5sums
+	chown 0:0 -- debian/seccomp/DEBIAN/md5sums
+	chmod 0644 -- debian/libseccomp2/DEBIAN/md5sums
+	chown 0:0 -- debian/libseccomp2/DEBIAN/md5sums
+	cd debian/.debhelper/seccomp/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/python-seccomp/DEBIAN/md5sums
+	chown 0:0 -- debian/python-seccomp/DEBIAN/md5sums
+	chmod 0644 -- debian/python3-seccomp/DEBIAN/md5sums
+	chown 0:0 -- debian/python3-seccomp/DEBIAN/md5sums
+	cd debian/.debhelper/libseccomp2/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/.debhelper/python-seccomp/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/.debhelper/python3-seccomp/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/libseccomp-dev/DEBIAN/md5sums
+	chown 0:0 -- debian/libseccomp-dev/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/seccomp/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/seccomp/dbgsym-root/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/libseccomp2/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/libseccomp2/dbgsym-root/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/python-seccomp/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/python-seccomp/dbgsym-root/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/python3-seccomp/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/python3-seccomp/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --build debian/libseccomp-dev ..
+	dpkg-deb --build debian/.debhelper/libseccomp2/dbgsym-root ..
+	dpkg-deb --build debian/.debhelper/seccomp/dbgsym-root ..
+	dpkg-deb --build debian/.debhelper/python-seccomp/dbgsym-root ..
+	dpkg-deb --build debian/.debhelper/python3-seccomp/dbgsym-root ..
+dpkg-deb: building package 'libseccomp-dev' in '../libseccomp-dev_2.3.3-4_amd64.deb'.
+dpkg-deb: building package 'libseccomp2-dbgsym' in '../libseccomp2-dbgsym_2.3.3-4_amd64.deb'.
+dpkg-deb: building package 'python-seccomp-dbgsym' in '../python-seccomp-dbgsym_2.3.3-4_amd64.deb'.
+dpkg-deb: building package 'seccomp-dbgsym' in '../seccomp-dbgsym_2.3.3-4_amd64.deb'.
+dpkg-deb: building package 'python3-seccomp-dbgsym' in '../python3-seccomp-dbgsym_2.3.3-4_amd64.deb'.
+	dpkg-deb --build debian/python-seccomp ..
+dpkg-deb: building package 'python-seccomp' in '../python-seccomp_2.3.3-4_amd64.deb'.
+	dpkg-deb --build debian/seccomp ..
+dpkg-deb: building package 'seccomp' in '../seccomp_2.3.3-4_amd64.deb'.
+	dpkg-deb --build debian/python3-seccomp ..
+dpkg-deb: building package 'python3-seccomp' in '../python3-seccomp_2.3.3-4_amd64.deb'.
+	dpkg-deb --build debian/libseccomp2 ..
+dpkg-deb: building package 'libseccomp2' in '../libseccomp2_2.3.3-4_amd64.deb'.
+FAKEROOTKEY=1055268111 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../libseccomp_2.3.3-4_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-source: info: unapplying 31-parisc_syscalls_linux415.patch
+dpkg-source: info: unapplying 30-parisc_syscalls_linux414.patch
+dpkg-source: info: unapplying 29-parisc_syscalls_linux49.patch
+dpkg-source: info: unapplying 28-parisc_support.patch
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian libseccomp_2.3.3-4_amd64.changes ...
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+W: seccomp: hardening-no-pie usr/bin/scmp_sys_resolver
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+W: seccomp: binary-without-manpage usr/bin/scmp_sys_resolver
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+E: libseccomp2: symbols-file-contains-current-version-with-debian-revision on symbol __cacheSize@Base and 32 others
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+Finished running lintian.

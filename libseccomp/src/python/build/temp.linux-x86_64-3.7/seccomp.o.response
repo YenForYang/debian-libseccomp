@@ -1,0 +1,17 @@
+-DNDEBUG
+-g
+-fwrapv
+-Wall
+-Wall
+-g
+-Wformat
+-Wformat-security
+-I../../include
+-I../../include
+-D_FORTIFY_SOURCE=2
+-fpic
+-I/usr/include/python3.7m
+-c
+seccomp.c
+-obuild/temp.linux-x86_64-3.7/seccomp.o
+-fno-strict-aliasing

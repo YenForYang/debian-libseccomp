@@ -1,0 +1,13 @@
+Package: libseccomp2-dbgsym
+Source: libseccomp
+Version: 2.3.3-4
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Kees Cook <kees@debian.org>
+Installed-Size: 86
+Depends: libseccomp2 (= 2.3.3-4)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libseccomp2
+Build-Ids: 872f50c2993388defef09bb172a6508a93a5760c

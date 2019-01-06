@@ -1,0 +1,4 @@
+debian/tmp/usr/include/seccomp.h
+debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.so
+debian/tmp/usr/lib/x86_64-linux-gnu/libseccomp.a
+debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig/libseccomp.pc

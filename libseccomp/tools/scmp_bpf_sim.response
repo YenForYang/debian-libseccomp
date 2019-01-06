@@ -1,0 +1,9 @@
+-Wall
+-g
+-Wformat
+-Wformat-security
+-Wl,-z
+-Wl,relro
+-oscmp_bpf_sim
+scmp_bpf_sim.o
+./.libs/util.a

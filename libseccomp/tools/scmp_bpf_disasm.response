@@ -1,0 +1,9 @@
+-Wall
+-g
+-Wformat
+-Wformat-security
+-Wl,-z
+-Wl,relro
+-oscmp_bpf_disasm
+scmp_bpf_disasm.o
+./.libs/util.a

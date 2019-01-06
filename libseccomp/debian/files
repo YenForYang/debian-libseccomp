@@ -1,0 +1,10 @@
+libseccomp-dev_2.3.3-4_amd64.deb libdevel optional
+libseccomp2-dbgsym_2.3.3-4_amd64.deb debug optional automatic=yes
+libseccomp2_2.3.3-4_amd64.deb libs optional
+libseccomp_2.3.3-4_amd64.buildinfo libs optional
+python-seccomp-dbgsym_2.3.3-4_amd64.deb debug optional automatic=yes
+python-seccomp_2.3.3-4_amd64.deb python optional
+python3-seccomp-dbgsym_2.3.3-4_amd64.deb debug optional automatic=yes
+python3-seccomp_2.3.3-4_amd64.deb python optional
+seccomp-dbgsym_2.3.3-4_amd64.deb debug optional automatic=yes
+seccomp_2.3.3-4_amd64.deb utils optional

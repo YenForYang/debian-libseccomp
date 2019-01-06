@@ -1,0 +1,7 @@
+-Wall
+-g
+-Wformat
+-Wformat-security
+-oscmp_sys_resolver
+scmp_sys_resolver.o
+../src/.libs/libseccomp.a

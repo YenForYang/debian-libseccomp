@@ -1,0 +1,6 @@
+d7c4f8753e50f1892fc9e9b5267904eb  usr/include/seccomp.h
+8c7b0ba5fd4f3104a45e4b9c4df188bc  usr/lib/x86_64-linux-gnu/libseccomp.a
+6078d8a2f2479760c93477bf24743286  usr/lib/x86_64-linux-gnu/pkgconfig/libseccomp.pc
+a0f239ed695a24eeae6e65eae8eeac6c  usr/share/doc/libseccomp-dev/changelog.Debian.gz
+5912fccdc7e0fa95ff34868fdc9a1421  usr/share/doc/libseccomp-dev/changelog.gz
+2a1920ce9684ad21bee00b481ee066af  usr/share/doc/libseccomp-dev/copyright

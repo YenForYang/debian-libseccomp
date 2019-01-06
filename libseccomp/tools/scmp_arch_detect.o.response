@@ -1,0 +1,12 @@
+-DHAVE_CONFIG_H
+-I.
+-I..
+-I../include
+-D_FORTIFY_SOURCE=2
+-Wall
+-g
+-Wformat
+-Wformat-security
+-c
+-oscmp_arch_detect.o
+scmp_arch_detect.c

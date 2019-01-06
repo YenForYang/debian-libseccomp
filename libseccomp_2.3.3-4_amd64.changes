@@ -1,0 +1,54 @@
+Format: 1.8
+Date: Mon, 01 Oct 2018 10:01:47 +0200
+Source: libseccomp
+Binary: libseccomp-dev libseccomp2 seccomp python-seccomp python3-seccomp
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 2.3.3-4
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Kees Cook <kees@debian.org>
+Changed-By: Ondřej Nový <onovy@debian.org>
+Description:
+ libseccomp-dev - high level interface to Linux seccomp filter (development files)
+ libseccomp2 - high level interface to Linux seccomp filter
+ python-seccomp - high level interface to Linux seccomp filter (Python 2 bindings)
+ python3-seccomp - high level interface to Linux seccomp filter (Python 3 bindings)
+ seccomp    - helper tools for high level interface to Linux seccomp filter
+Changes:
+ libseccomp (2.3.3-4) UNRELEASED; urgency=medium
+ .
+   * d/copyright: Change Format URL to correct one
+Checksums-Sha1:
+ ab219bf52697ae0134b00d68a31ae3cf20579af2 471108 libseccomp-dev_2.3.3-4_amd64.deb
+ 2d56a9c66c8495e1639d6396c48483b7e476c7c9 66592 libseccomp2-dbgsym_2.3.3-4_amd64.deb
+ 479c2676a829aa4ac01ef523d05b437fe2ebc750 84316 libseccomp2_2.3.3-4_amd64.deb
+ 1e9ca29bf2b65fa26658b969d806059992c0f399 8644 libseccomp_2.3.3-4_amd64.buildinfo
+ be6f63a13612d8721ec2b881a3e53863fc1b4a1c 131804 python-seccomp-dbgsym_2.3.3-4_amd64.deb
+ 5cc3c88e9aecfa714db21062f714f8a5f0715294 142196 python-seccomp_2.3.3-4_amd64.deb
+ f1a9575f1c2c14eec0cf145180a798fd0714636f 138960 python3-seccomp-dbgsym_2.3.3-4_amd64.deb
+ 04a2ac95b9c2f7ff461bbaec96d7b9822c6736df 144012 python3-seccomp_2.3.3-4_amd64.deb
+ f1d6abb2d55b23a7028b0510fe4e8181d97fdfe2 16132 seccomp-dbgsym_2.3.3-4_amd64.deb
+ f3dced54b271a73066a4627f896f4c85bfc1b8d5 33992 seccomp_2.3.3-4_amd64.deb
+Checksums-Sha256:
+ 41e571449cda74bb6acf8c18635e2538b2d9fb7a4675d5739faf7b4cf920cb14 471108 libseccomp-dev_2.3.3-4_amd64.deb
+ b3d35a4c267fb84e345f48a94ce6b99371e71ccfa31f313ab347252ead6de8fe 66592 libseccomp2-dbgsym_2.3.3-4_amd64.deb
+ 80a92f39a2360c034cedb0faf8427e1afa9c79ff70fc1cb7c8c39ad679bf0f9e 84316 libseccomp2_2.3.3-4_amd64.deb
+ 7685fd73ed9acab90474ced8a66d261da73426aad1f9880baa658de74ec47eee 8644 libseccomp_2.3.3-4_amd64.buildinfo
+ a9e082a32f5d28ff6a2413979a9b67b3bf2aa2a33bad5e30a5ff60ac69deeb26 131804 python-seccomp-dbgsym_2.3.3-4_amd64.deb
+ f1e85f20f6ee392c60815882822ef0e4270e02fe923ff0b1550f5fe22e628172 142196 python-seccomp_2.3.3-4_amd64.deb
+ 18725cd04e815318a97f69a3b09c9e87c58210ce0f81bceeff122ef919bb8e16 138960 python3-seccomp-dbgsym_2.3.3-4_amd64.deb
+ 4ef546359a2041fbd67cb1d76d30a9847a4bc3ff0ac59a840ea13091b0d24744 144012 python3-seccomp_2.3.3-4_amd64.deb
+ e76e4de175d3839f7cfb0dae15fb513d5d083938ce20ad26c25e302c7f099edd 16132 seccomp-dbgsym_2.3.3-4_amd64.deb
+ 85f52e9c1e48821c064f7e53a0916d94a334873620dd5c9ea9763f0c84d57ba1 33992 seccomp_2.3.3-4_amd64.deb
+Files:
+ 68959a8d11a0cc374550998fed3dd07f 471108 libdevel optional libseccomp-dev_2.3.3-4_amd64.deb
+ 2d18720b69df385e7288460fd383caad 66592 debug optional libseccomp2-dbgsym_2.3.3-4_amd64.deb
+ 2aba5bef2b50e0a4f68ad25871f9d4d8 84316 libs optional libseccomp2_2.3.3-4_amd64.deb
+ 571c4bb5d9010777f2d3c2ed8517ee87 8644 libs optional libseccomp_2.3.3-4_amd64.buildinfo
+ 5d6255a62a49991f087c605925fae6cd 131804 debug optional python-seccomp-dbgsym_2.3.3-4_amd64.deb
+ 882c9e7bfd51cc908b99b51210abaec1 142196 python optional python-seccomp_2.3.3-4_amd64.deb
+ 361b3922405fedd06442a3576212a05f 138960 debug optional python3-seccomp-dbgsym_2.3.3-4_amd64.deb
+ f2eb57006584ba63a06f63ca0a225734 144012 python optional python3-seccomp_2.3.3-4_amd64.deb
+ 76605a098097ab0bf348187f799dabab 16132 debug optional seccomp-dbgsym_2.3.3-4_amd64.deb
+ 24c6f9d3c1161f05ed8583622c660928 33992 utils optional seccomp_2.3.3-4_amd64.deb

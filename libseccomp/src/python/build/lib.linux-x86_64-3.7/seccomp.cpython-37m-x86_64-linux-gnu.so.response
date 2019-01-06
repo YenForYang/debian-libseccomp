@@ -1,0 +1,13 @@
+-shared
+-Wl,-z
+-Wl,relro
+-Wall
+-g
+-Wformat
+-Wformat-security
+-I../../include
+-I../../include
+-D_FORTIFY_SOURCE=2
+build/temp.linux-x86_64-3.7/seccomp.o
+../.libs/libseccomp.a
+-obuild/lib.linux-x86_64-3.7/seccomp.cpython-37m-x86_64-linux-gnu.so

@@ -1,0 +1,7 @@
+-Wall
+-g
+-Wformat
+-Wformat-security
+-oscmp_arch_detect
+scmp_arch_detect.o
+../src/.libs/libseccomp.a

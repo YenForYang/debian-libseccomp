@@ -1,0 +1,13 @@
+Package: python-seccomp-dbgsym
+Source: libseccomp
+Version: 2.3.3-4
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Kees Cook <kees@debian.org>
+Installed-Size: 170
+Depends: python-seccomp (= 2.3.3-4)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for python-seccomp
+Build-Ids: 105ed76466309a18480e0d7dea3e6403db842cef

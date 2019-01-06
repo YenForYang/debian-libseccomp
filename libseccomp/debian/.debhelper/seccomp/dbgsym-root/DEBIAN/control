@@ -1,0 +1,12 @@
+Package: seccomp-dbgsym
+Source: libseccomp
+Version: 2.3.3-4
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Kees Cook <kees@debian.org>
+Installed-Size: 36
+Depends: seccomp (= 2.3.3-4)
+Section: debug
+Priority: optional
+Description: debug symbols for seccomp
+Build-Ids: ab090be82d1085696416002bd1fd27eb6ad8291c
